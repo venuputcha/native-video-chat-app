@@ -1,11 +1,12 @@
-# About Hello
-Hello is a 100% peer-to-peer video communication solution that does not have any signaling server. In other words, the server is purely for serving the HTML page & its assets and the video communication is 100% peer-to-peer using WebRTC.
+# Hello
+There are 2 versions of hello app currently live.
+1. A P2P video chat (w/ signaling server). https://itshello.co
+2. A 100% P2P version (w/o signaling server). https://vasanthv.github.io/hello/
 
-## Why is there a manual step involved?
-WebRTC is a peer-to-peer protocol for the web, but it does not have any mechanism for peer discovery. So there is a manual step involved to exchange your details, so that you can connect with your peer directly.
+`master` branch has the source of the https://itshello.co.
 
-## What details am I exchanging with my peer?
-You will be exchanging your [SDP](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate) & [ICE Candidates](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate) which is necessary for your peer to connect to you. We share this details by converting it to a base64 encoded string, so that it can be transmitted through URL.
+## Why Hello?
+There are many video chat solutions out there like Skype, Hangouts, Whatsapp, Appear.in etc. But everyone wants me to download their app in my mobile or desktop. WebRTC is so cool that it can run in your browser, why do I need to download your app? _So I built it myself_.
 
 ### For trying out locally
 Run the following commands

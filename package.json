@@ -13,6 +13,8 @@
   "author": "https://github.com/vasanthv",
   "license": "WTFPL",
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
   }
 }
