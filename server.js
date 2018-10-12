@@ -12,7 +12,7 @@ server.listen(PORT, null, function() {
     console.log("Listening on port " + PORT);
 });
 
-app.get(['/', '/:room'], (req, res) => res.sendFile(__dirname + '/client.html'));
+app.get(['/', '/:room'], (req, res) => res.sendFile(__dirname + '/index.html'));
 
 /**
  * Users will connect to the signaling server, after which they'll issue a "join"
