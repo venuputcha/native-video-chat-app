@@ -1,10 +1,10 @@
 {
   "name": "hello",
-  "version": "2.0.0",
-  "description": "A serverless video communication tool.",
-  "main": "httpserver.js",
+  "version": "3.0.0",
+  "description": "A video chat app that works in all desktop & mobile browsers. No Signup. No Downloads. Just video chat.",
+  "main": "server.js",
   "scripts": {
-    "start": "node httpserver.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +13,7 @@
   "author": "https://github.com/vasanthv",
   "license": "WTFPL",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
   }
 }
