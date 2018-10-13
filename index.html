@@ -191,7 +191,7 @@
 					videoWrap.className = 'video';
 					const remote_media = document.createElement('video');
 					videoWrap.appendChild(remote_media);
-					remote_media.playsinline = true;
+					remote_media.setAttribute('playsinline', true);
 					remote_media.autoplay = true;
 					remote_media.controls = false;
 					peer_media_elements[peer_id] = remote_media;
@@ -352,8 +352,8 @@
 				const local_media = document.createElement('video');
 				videoWrap.appendChild(local_media);
 				local_media.setAttribute('id', 'selfVideo');
+				local_media.setAttribute('playsinline', true);
 				local_media.autoplay = true;
-				local_media.playsinline = true;
 				local_media.muted = true;
 				local_media.volume = 0
 				local_media.controls = false;
