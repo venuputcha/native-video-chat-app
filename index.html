@@ -309,6 +309,15 @@
 				delete peer_media_elements[config.peer_id];
 			});
 			document.getElementById('roomurl').textContent = appURL()+'/'+getRoomName();
+			document.getElementById('roomurl').addEventListener('click', event => {
+				let range, selection;
+				selection = window.getSelection();
+				range = document.createRange();
+				range.selectNodeContents(event.target);
+				selection.removeAllRanges();
+				selection.addRange(range);			
+			});
+
 		}
 		function setup_local_media(callback, errorback) {
 			if (local_media_stream != null) {  /* ie, if we've already been initialized */
@@ -381,7 +390,7 @@
 </head>
 <body onload='init()'>
 	<div id="intro" class="message">
-		Invite more people to this video call by sharing this URL.
+		Invite people to this video call by sharing this URL.
 		<span id="roomurl"></span>
 	</div>
 	<div id="tooManyParticipants" class="message">Too many participants will affect the performance of the video call.</div>
