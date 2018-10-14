@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<meta name="description" content="Hello is a video chat app that works in all desktop & mobile browsers. No Signup. No Downloads. Just video chat." />
+	<meta name="description" content="Hello is a video chat app that works in most major desktop & mobile browsers. No Signup. No Downloads. Just video chat." />
 	<meta name="keywords" content="group video chat, video communication, multiparty video chat, video chat, webrtc, peer to peer, p2p" />
 	<meta name="author" content="Vasanth.V" />
 	<meta name="application-name" content="Hello" />
 	<meta name="theme-color" content="#000000">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-19124340-20"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-19124340-20');
+	</script>
+
 
 	<link rel="icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="icon" href="icon.png" type="image/png" />
@@ -353,7 +363,7 @@
 </head>
 <body onload='init()'>
 	<div id="intro" class="message">
-		Invite people to this video call by sharing this URL.
+		Invite your friends to video call by sharing this URL.
 		<span id="roomurl"></span>
 		<br/><a href="https://github.com/vasanthv/hello#readme" style="font-size: small;">Know More</a>
 	</div>
