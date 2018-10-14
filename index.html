@@ -25,9 +25,10 @@
 		.video.six{width: 33.33vw;height: 50vh;}
 		#selfVideoWrap{position: relative;}
 		#selfVideo {transform: rotateY(180deg);-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);}
-		#mutebtn{position: absolute;bottom: 10px;left:10px; z-index: 999;font-size: xx-large;cursor: pointer;background: none;border:none;}
-		#videomutebtn{position: absolute;bottom: 10px;left:calc(1.5em + 10px); z-index: 999;font-size: xx-large;cursor: pointer;background: none;border:none;}
-		.icon-mic-off, .icon-video-off{color:#e74c3c;}
+		#btnWrap{position: absolute;bottom:10px;left:0px;right:0px;text-align:center;z-index: 999;}
+		#mutebtn{padding:10px;margin:0px 10px;width:64px;font-size:2em;cursor: pointer;background: none;border:none;color:#fff;}
+		#videomutebtn{padding:10px;margin:0px 10px;width:64px;font-size:2em;cursor: pointer;background: none;border:none;color:#fff;}
+		.fa-microphone-slash, .fa-video-slash{color:#e74c3c!important;}
 		#roomurl{display:inline-block;border-radius: 5px;border:1px solid #dcdcdc;background: #efefef;font-size: 80%;padding: 5px;margin-top: 5px;}
 		.message{width: 300px; position: fixed; bottom: 10px; right:10px;box-sizing: border-box; padding:10px;background: #fff; border-radius: 5px;z-index: 1000;}
 		#tooManyParticipants{background: #c0392b;color: #fff;display: none;}
@@ -37,46 +38,8 @@
 			.video.three{width: 100vw;height: 33.33vh;}
 			.video.six{width: 50vw;height: 33.33vh;}
 		}
-		@font-face {
-		  font-family: 'icomoon';
-		  src:  url('fonts/icomoon.eot?8x2ftm');
-		  src:  url('fonts/icomoon.eot?8x2ftm#iefix') format('embedded-opentype'),
-		    url('fonts/icomoon.ttf?8x2ftm') format('truetype'),
-		    url('fonts/icomoon.woff?8x2ftm') format('woff'),
-		    url('fonts/icomoon.svg?8x2ftm#icomoon') format('svg');
-		  font-weight: normal;
-		  font-style: normal;
-		}
-
-		[class^="icon-"], [class*=" icon-"] {
-		  /* use !important to prevent issues with browser extensions that change fonts */
-		  font-family: 'icomoon' !important;
-		  speak: none;
-		  font-style: normal;
-		  font-weight: normal;
-		  font-variant: normal;
-		  text-transform: none;
-		  line-height: 1;
-
-		  /* Better Font Rendering =========== */
-		  -webkit-font-smoothing: antialiased;
-		  -moz-osx-font-smoothing: grayscale;
-		}
-
-		.icon-mic:before {
-		  content: "\e900";
-		}
-		.icon-mic-off:before {
-		  content: "\e901";
-		}
-		.icon-video:before {
-		  content: "\e902";
-		}
-		.icon-video-off:before {
-		  content: "\e903";
-		}
 	</style>
-	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous"/>
 	<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script type="text/javascript">
@@ -333,22 +296,25 @@
 				const videoWrap = document.createElement('div');
 				videoWrap.className = 'video';
 				videoWrap.setAttribute('id', 'selfVideoWrap');
+				const btnWrap = document.createElement('div');
+				btnWrap.setAttribute('id', 'btnWrap');
 				const muteBtn = document.createElement('button');
 				muteBtn.setAttribute('id', 'mutebtn');
-				muteBtn.className = 'icon-mic';
+				muteBtn.className = 'fas fa-microphone';
 				muteBtn.addEventListener('click', (e) => {
 					local_media_stream.getAudioTracks()[0].enabled = !(local_media_stream.getAudioTracks()[0].enabled);
-					e.target.className = 'icon-mic'+(local_media_stream.getAudioTracks()[0].enabled ? '' : '-off');
+					e.target.className = 'fas fa-microphone'+(local_media_stream.getAudioTracks()[0].enabled ? '' : '-slash');
 				});
-				videoWrap.appendChild(muteBtn);
+				btnWrap.appendChild(muteBtn);
 				const videoMuteBtn = document.createElement('button');
 				videoMuteBtn.setAttribute('id', 'videomutebtn');
-				videoMuteBtn.className = 'icon-video';
+				videoMuteBtn.className = 'fas fa-video';
 				videoMuteBtn.addEventListener('click', (e) => {
 					local_media_stream.getVideoTracks()[0].enabled = !(local_media_stream.getVideoTracks()[0].enabled);
-					e.target.className = 'icon-video'+(local_media_stream.getVideoTracks()[0].enabled ? '' : '-off');
+					e.target.className = 'fas fa-video'+(local_media_stream.getVideoTracks()[0].enabled ? '' : '-slash');
 				});
-				videoWrap.appendChild(videoMuteBtn);
+				btnWrap.appendChild(videoMuteBtn);
+				videoWrap.appendChild(btnWrap);
 				const local_media = document.createElement('video');
 				videoWrap.appendChild(local_media);
 				local_media.setAttribute('id', 'selfVideo');
