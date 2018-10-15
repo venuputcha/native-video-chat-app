@@ -1,22 +1,11 @@
-# About Hello
-Hello is a 100% peer-to-peer video communication solution that does not have any signaling server. In other words, the server is purely for serving the HTML page & its assets and the video communication is 100% peer-to-peer using WebRTC.
+## Why Hello?
+Its 2018, WebRTC is natively supported in all desktop & mobile browsers but still most major players (Hangouts, skype, Appear.in etc) ask you to download app to use their service. 
 
-## Why is there a manual step involved?
-WebRTC is a peer-to-peer protocol for the web, but it does not have any mechanism for peer discovery. So there is a manual step involved to exchange your details, so that you can connect with your peer directly.
+## Hello
+Hello is a video chat app that works in most major desktop & mobile browsers. No Signup. No Downloads. Just video chat. 
 
-## What details am I exchanging with my peer?
-You will be exchanging your [SDP](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate) & [ICE Candidates](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate) which is necessary for your peer to connect to you. We share this details by converting it to a base64 encoded string, so that it can be transmitted through URL.
+Hello use a WeBRTC for video communication and a socket.io server that serves as a signaling server. It uses WebRTC mesh when more people is added to the user, it means each video stream in a group call is a separate P2P connection. There is no hard limit on the no. of people in the group video call, but the quality of the call will decrease when more than 5 people join the call.
 
-### For trying out locally
-Run the following commands
-```
-git clone https://github.com/vasanthv/hello.git
+### Credits:
+[https://github.com/anoek/webrtc-group-chat-example](https://github.com/anoek/webrtc-group-chat-example)
 
-cd hello
-
-npm install
-
-npm start
-```
-
-Point your browser to http://localhost:3000/
