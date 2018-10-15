@@ -162,6 +162,7 @@
 					const remote_media = document.createElement('video');
 					videoWrap.appendChild(remote_media);
 					remote_media.setAttribute('playsinline', true);
+					remote_media.mediaGroup = 'remotevideo';
 					remote_media.autoplay = true;
 					remote_media.controls = false;
 					peer_media_elements[peer_id] = remote_media;
@@ -188,7 +189,7 @@
 								function() { 
 									signaling_socket.emit('relaySessionDescription', 
 										{'peer_id': peer_id, 'session_description': local_description});
-									console.log("Offer setLocalDescription succeeded"); 
+									// console.log("Offer setLocalDescription succeeded"); 
 								},
 								function() { Alert("Offer setLocalDescription failed!"); }
 							);
@@ -211,14 +212,14 @@
 				var peer_id = config.peer_id;
 				var peer = peers[peer_id];
 				var remote_description = config.session_description;
-				console.log(config.session_description);
+				// console.log(config.session_description);
 
 				var desc = new RTCSessionDescription(remote_description);
 				var stuff = peer.setRemoteDescription(desc, 
 					function() {
 						// console.log("setRemoteDescription succeeded");
 						if (remote_description.type == "offer") {
-							console.log("Creating answer");
+							// console.log("Creating answer");
 							peer.createAnswer(
 								function(local_description) {
 									// console.log("Answer description is: ", local_description);
@@ -226,14 +227,14 @@
 										function() { 
 											signaling_socket.emit('relaySessionDescription', 
 												{'peer_id': peer_id, 'session_description': local_description});
-											console.log("Answer setLocalDescription succeeded");
+											// console.log("Answer setLocalDescription succeeded");
 										},
 										function() { Alert("Answer setLocalDescription failed!"); }
 									);
 								},
 								function(error) {
 									console.log("Error creating answer: ", error);
-									console.log(peer);
+									// console.log(peer);
 								});
 						}
 					},
@@ -333,7 +334,6 @@
 				document.body.appendChild(videoWrap);
 				attachMediaStream(local_media, stream);
 				resizeVideos();
-				console.log(local_media_stream);
 				if (callback) callback();
 			}).catch(() => { /* user denied access to a/v */
 				alert("This site will not work without camera/microphone access.");
