@@ -1,5 +1,5 @@
 ## Why Hello?
-It's 2018, WebRTC is natively supported in all desktop & mobile browsers but still, most major players (Hangouts, Skype, appear.in, etc) ask you to download their app to use the service. 
+It's 2018, WebRTC is natively supported in all desktop & mobile browsers but still, most major players (Hangouts, Skype, appear.in, etc.) ask you to download their app to use the service. 
 
 ## Hello
 Hello is a video chat app that works on most major desktop & mobile browsers. No Signup. No Downloads. Just video chat. 
