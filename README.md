@@ -11,3 +11,6 @@ Hello uses WebRTC for video communication and a socket.io server that serves as 
 
 ------------------
 If you are here for checking the P2P video call without signaling server, head over to the `gh-pages` branch. And check out the demo here [https://vasanthv.github.io/hello/](https://vasanthv.github.io/hello/).
+
+### License
+[WTFPL](http://www.wtfpl.net/)
